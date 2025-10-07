@@ -216,7 +216,7 @@ export default function Form() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ body: payload }),
+                body: JSON.stringify(payload),
             });
             if (!res.ok) {
                 console.error("Webhook responded with error", res.status, await res.text());
