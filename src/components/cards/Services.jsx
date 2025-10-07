@@ -79,6 +79,12 @@ export default function Services({
                     borderIconColor="rgba(77,77, 77, .65)"
                     bgIconColor="rgb(26, 26, 26)"
                     svgcolor="#fff"
+                    onClick={() => {
+                        const scrollForm = document.getElementById('form');
+                        if (scrollForm) {
+                            scrollForm.scrollIntoView({ behavior: 'smooth'})
+                        }
+                    }}
                 />
             </Card>
         </>

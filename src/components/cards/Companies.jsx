@@ -138,6 +138,12 @@ export default function CompaniesCard({
                     borderIconColor="rgba(77,77, 77, .65)"
                     bgIconColor="rgb(26, 26, 26)"
                     svgcolor="#fff"
+                    onClick={() => {
+                        const formSection = document.getElementById('form');
+                        if (formSection){
+                            formSection.scrollIntoView({ behavior: 'smooth' })
+                        }
+                    }}
                 />
             </Card>
         </>

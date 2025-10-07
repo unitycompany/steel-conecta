@@ -5,7 +5,7 @@ export default function Title({
 }) {
     return (
         <>
-            <h1>{children}</h1>
+            <h1 data-aos="fade-up">{children}</h1>
         </>
     )
 }

@@ -23,6 +23,7 @@ const Container = styled.section`
     border-right: none;
     position: relative;
     overflow: hidden;
+    margin-top: 80px;
 
     @media (max-width: 768px) {
         gap: 24px;
@@ -222,7 +223,7 @@ export default function GraficSection() {
             color: ['rgba(29, 83, 124, 0.85)'],
             // Configuração global de animação
             animation: true,
-            animationDuration: 6000,
+            animationDuration: 4000,
             animationEasing: 'cubicOut',
             animationDelay: 0,
             tooltip: {
@@ -354,6 +355,12 @@ export default function GraficSection() {
                             borderIconColor="rgba(29,83, 124, .65)"
                             bgIconColor="rgb(102, 140, 173)"
                             svgcolor="#fff"
+                            onClick={() => {
+                                const scrollForm = document.getElementById('form');
+                                if (scrollForm) {
+                                    scrollForm.scrollIntoView({ behavior: 'smooth'})
+                                }
+                            }}
                         />
                     </Infos>
                 </Content>

@@ -135,6 +135,12 @@ export default function About() {
                         borderIconColor="rgba(29,83, 124, .65)"
                         bgIconColor="rgb(102, 140, 173)"
                         svgcolor="#fff"
+                        onClick={() => {
+                            const scrollForm = document.getElementById('form');
+                            if (scrollForm) {
+                                scrollForm.scrollIntoView({ behavior: 'smooth' })
+                            }
+                        }}
                     />
                 </Texts>
                 <Image>

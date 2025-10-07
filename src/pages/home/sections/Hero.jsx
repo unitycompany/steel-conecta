@@ -1,8 +1,8 @@
 import styled, {keyframes} from "styled-components";
-import Badge from "../../../components/badges/Badge";
-import Title from "../../../components/texts/Title";
-import Description from "../../../components/texts/Description";
-import Button from "../../../components/buttons/Button";
+import Badge from "@components/badges/Badge";
+import Title from "@components/texts/Title";
+import Description from "@components/texts/Description";
+import Button from "@components/buttons/Button";
 
 import logoIcon from '@/assets/icon/icon-steelconecta-white.svg';
 
@@ -10,18 +10,18 @@ const Container = styled.section`
     width: 100%;
     padding: 0 5%;
     background: ${( props ) => props.theme.color.white[300]};
-    border-radius: 28px 28px 0 0;
+    border-radius: 0px 0px 28px 28px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin-top: -6px;
+    margin-top: -12px;
     gap: 42px;
 
     @media (max-width: 768px) {
         flex-direction: column-reverse; 
-        border-radius: 18px 18px 0 0;   
+        border-radius: 0 0 18px 18px;   
     }
 `
 
@@ -297,6 +297,12 @@ export default function Hero () {
                         borderIconColor="rgba(29,83, 124, .65)"
                         bgIconColor="rgb(102, 140, 173)"
                         svgcolor="#fff"
+                        onClick={() => {
+                            const scrollForm = document.getElementById('form');
+                            if (scrollForm) {
+                                scrollForm.scrollIntoView({ behavior: 'smooth'});
+                            }
+                        }}
                     />
                 </Texts>
                 <Images>

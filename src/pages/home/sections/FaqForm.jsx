@@ -24,7 +24,7 @@ const Container = styled.section`
 export default function FaqForm() {
     return (
         <>
-            <Container>
+            <Container id="form">
                 <FAQ />
                 <Form />    
             </Container>  

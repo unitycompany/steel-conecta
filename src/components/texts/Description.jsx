@@ -5,7 +5,7 @@ export default function Description({
 }) {
     return (
         <>
-            <p>{children}</p>
+            <p data-aos="fade-up" data-aos-delay="200">{children}</p>
         </>
     )
 }

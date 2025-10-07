@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Header from "@/components/layout/Header";
+import Header from "@components/layout/Header";
 import Hero from "./sections/Hero";
 import Range from "./sections/Range";
 import Proposal from "./sections/Proposal";
@@ -8,7 +8,7 @@ import About from "./sections/About";
 import Companies from "./sections/Companies";
 import Leads from "./sections/Leads";
 import FaqForm from "./sections/FaqForm";
-import Footer from "../../components/layout/Footer";
+import Footer from "@components/layout/Footer";
 
 const Container = styled.section`
     width: 100%;
@@ -28,14 +28,14 @@ export default function Home() {
         <>
             <Container>
                 <Header />
-                    <Hero />
+                    <Grafic />
                         <Range />
-                            <Proposal />
-                                <Grafic />
-                                    <About />
+                            <About />
+                                <Proposal />    
+                                    <Range />
                                         <Companies />  
-                                            <Range />
-                                                <Leads />
+                                            <Leads />
+                                                <Hero />
                                                     <FaqForm />
                                                         <Footer />
             </Container>

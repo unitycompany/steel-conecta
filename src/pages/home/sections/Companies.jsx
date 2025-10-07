@@ -18,7 +18,7 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     padding: 5% 5%;
-    gap: 36px;
+    gap: 48px;
 `
 
 const Texts = styled.div`

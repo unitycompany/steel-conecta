@@ -14,6 +14,13 @@ const Container = styled.header`
     position: relative;
     height: 80px;
     padding: 0 5%;
+    background-color: rgba(28, 28, 28, 0.8);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 99999;
 
     & .image {
         display: flex;
@@ -56,6 +63,12 @@ export default function Header() {
                     borderIconColor="rgba(29,83, 124, .65)"
                     bgIconColor="rgb(102, 140, 173)"
                     svgcolor="#fff"
+                    onClick={() => {
+                        const scrollForm = document.getElementById('form');
+                        if (scrollForm) {
+                            scrollForm.scrollIntoView({ behavior: 'smooth'})
+                        }
+                    }}
                 />
             </Container>
         </>
