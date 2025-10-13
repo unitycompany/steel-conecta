@@ -316,10 +316,10 @@ export default function GraficSection() {
                 </Bg>
                 <Texts>
                     <Title 
-                        children="Nosso sistema é o que mais cresce no mundo"
+                        children="Você executa bem, mas não lucra como um empresário?"
                     />
                     <Description 
-                        children="Somos uma empresa que está dedicada a levar você a um novo nível no mercado da construção civil"
+                        children="Construa no sistema que mais cresce no Brasil com método, suporte e negócios REAIS."
                     />
                 </Texts>
                 <Content>
@@ -334,21 +334,21 @@ export default function GraficSection() {
                             />
                             <div className="titles">
                                 <Title 
-                                    children="Dados retirados de fontes oficiais"
+                                    children="Dados REAIS sobre o mercado da construção a seco"
                                 />
                                 <Description>
-                                    <a href="https://www.maximizemarketresearch.com/market-report/global-dry-construction-market/24075/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Dry Construction Market: Global Industry Analysis and Forecast.</a>
+                                    <a href="https://www.maximizemarketresearch.com/market-report/global-dry-construction-market/24075/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Dry Construction Market: Global Industry Analysis and Forecast</a>
                                 </Description>
                             </div>
                         </aside>
                         <Title 
-                            children="O mercado dobra a cada 10 anos, a tendencia é aumentar ainda mais esse número"
+                            children="O mercado cresce 4,5% ao ano, a sua margem de lucro também?"
                         />
                         <Description 
-                            children="Somos uma empresa que está dedicada a levar você a um novo nível no mercado da construção civil"
+                            children="Faça parte do ecossistema que transforma montadores e emprenteiros em empresários rentáveis de Steel Frame."
                         />
                         <Button 
-                            children="Participar da Steel Conecta"
+                            children="Quero reservar minha vaga"
                             borderColor="rgba(102, 140, 173, .65)"
                             colorText="#fff"
                             bgColor="rgb(29, 83, 124)"

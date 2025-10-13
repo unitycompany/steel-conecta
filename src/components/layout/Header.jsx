@@ -56,7 +56,7 @@ export default function Header() {
                     />
                 </picture>
                 <Button 
-                    children="Participar da Steel Conecta"
+                    children="Quero reserver minha vaga"
                     borderColor="rgba(102, 140, 173, .65)"
                     colorText="#fff"
                     bgColor="rgb(29, 83, 124)"

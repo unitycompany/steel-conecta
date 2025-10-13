@@ -65,7 +65,7 @@ export default function Footer () {
                         style={{ height: '800px' }}
                     />
                 </Bg>
-                <p>Todos os direitos reservados | CNPJ: 40.436.034/0001-48 | Fast Homes</p>
+                <p>Todos os direitos reservados | Steel Conecta</p>
                 <p>by <a href="http://wa.me/5524981411940" target="_blank"><img src={alephwebdev} alt="" /></a></p>
             </Container>
         </>

@@ -6,7 +6,7 @@ const Container = styled.section`
     width: 100%;
     height: auto;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 32px;
@@ -25,7 +25,7 @@ export default function FaqForm() {
     return (
         <>
             <Container id="form">
-                <FAQ />
+                {/* <FAQ /> */}
                 <Form />    
             </Container>  
         </>

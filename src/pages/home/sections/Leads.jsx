@@ -196,13 +196,13 @@ export default function Leads() {
                     </Image>
                     <Texts>
                         <Title 
-                            children="Receba leads qualificados o tempo todo, sem estresse!"
+                            children="Receba leads que viram contratos de verdade"
                         />
                         <Description 
-                            children="Somos uma empresa que está dedicada a levar você a um novo nível no mercado da construção civil"
+                            children="A SteelConecta gera oportunidades reais para que você foque no que faz de melhor: construir."
                         />
                         <Button 
-                            children="Participar da Steel Conecta"
+                            children="Quero reservar minha vaga"
                             borderColor="rgba(77, 77, 77, .65)"
                             colorText="#fff"
                             bgColor="rgb(51, 51, 51)"

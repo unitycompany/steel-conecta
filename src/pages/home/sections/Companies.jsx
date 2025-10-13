@@ -149,10 +149,10 @@ export default function Companies () {
             <Container>
                 <Texts>
                     <Title 
-                        children="Parcerias de alto nível, para te guiar e auxiliar"
+                        children="Conecte-se a quem entende do mercado"
                     />
                     <Description 
-                        children="Somos uma empresa que está dedicada a levar você a um novo nível no mercado da construção civil"
+                        children="Você domina a execução, a SteelConecta entrega o resto."
                     />
                 </Texts>
                 <Carousel>

@@ -13,6 +13,7 @@ const Container = styled.section`
     padding: 32px 26px;
     border-radius: 32px 0 32px 0;
     width: 100%;
+    max-width: 800px;
     gap: 22px;
     flex: 1;
     background: linear-gradient(-45deg, ${(props) => props.theme.color.white[100]}, ${(props) => props.theme.color.gray[100]});
@@ -32,6 +33,7 @@ const Container = styled.section`
 
     @media (max-width: 768px){
         padding: 22px 18px;
+        max-width: 100%;
     }
 `
 
@@ -235,7 +237,7 @@ export default function Form() {
         <>
             <Container>
                 <Title 
-                    children="Preencha o formulário para entrar em contato"
+                    children="Garanta a sua vaga no pré-lançamento"
                 />
                 {sent ? (
                     <div style={{ padding: 0, textAlign: 'left', color: 'var(--color--black)' }}>Obrigado por enviar o formulário, em breve nosso time entrará em contato com você!</div>

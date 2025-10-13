@@ -276,7 +276,7 @@ export default function Hero () {
                         />
                         <div className="infos">
                             <Title 
-                                children="Steel Frame, o futuro já está no presente!"
+                                children="O Steel Frame não é o futuro, já é o presente"
                             />
                             <Description 
                                 children="Steel Conecta | 2025"
@@ -284,13 +284,13 @@ export default function Hero () {
                         </div>
                     </div>
                     <Title 
-                        children="Aprenda a trabalhar com Steel Frame, aproveite o momento e saia na frente!"
+                        children="Aprenda a trabalhar com Steel Frame e seja pioneiro na sua região!"
                     />
                     <Description 
-                        children="Junto com a Steel Conecta você terá benefícios exclusivos, diversas condições especiais e ainda melhor, terá uma bagagem de conhecimento acima da média"
+                        children="Fazer parte da SteelConecta, integrante da FAST Franchising, é ter acesso a um modelo validado, com condições especiais e um sistema completo para empreender no Steel Frame com segurança e rentabilidade."
                     />
                     <Button 
-                        children="Participar da Steel Conecta"
+                        children="Quero reservar minha vaga"
                         borderColor="rgba(102, 140, 173, .65)"
                         colorText="#fff"
                         bgColor="rgb(29, 83, 124)"

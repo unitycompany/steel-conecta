@@ -131,7 +131,7 @@ export default function CompaniesCard({
                     </ul>
                 </Content>
                 <Button 
-                    children="Participar da Steel Conecta"
+                    children="Quero reservar minha vaga"
                     borderColor="rgba(77, 77, 77, .65)"
                     colorText="#fff"
                     bgColor="rgb(51, 51, 51)"
