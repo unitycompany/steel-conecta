@@ -342,10 +342,10 @@ export default function GraficSection() {
                             </div>
                         </aside>
                         <Title 
-                            children="O mercado cresce 4,5% ao ano, a sua margem de lucro também?"
+                            children="O mercado cresce 9,5% ao ano, a sua margem de lucro também?"
                         />
                         <Description 
-                            children="Faça parte do ecossistema que transforma montadores e emprenteiros em empresários rentáveis de Steel Frame."
+                            children="Faça parte do ecossistema que transforma montadores e empreteiros em empresários rentáveis de Steel Frame."
                         />
                         <Button 
                             children="Quero reservar minha vaga"

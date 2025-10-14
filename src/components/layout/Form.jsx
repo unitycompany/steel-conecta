@@ -11,7 +11,7 @@ const Container = styled.section`
     justify-content: center;
     height: auto;
     padding: 32px 26px;
-    border-radius: 32px 0 32px 0;
+    border-radius: 24px 24px 0px 0;
     width: 100%;
     max-width: 800px;
     gap: 22px;
