@@ -22,6 +22,7 @@ const Card = styled.div`
         height: 250px;
         object-fit: cover;
         object-position: center;
+        border-radius: 18px 18px 18px 0px;
     }
 
     & h1 {

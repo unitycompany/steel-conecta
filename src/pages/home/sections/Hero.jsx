@@ -308,24 +308,24 @@ export default function Hero () {
                 <Images>
                     <Content>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/81eeb305-1198-4f8a-29cd-05bf0fcc8600/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/0386c00f-cce8-4b74-4f45-8da50fbed200/public" alt="" />
                         </div>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/743ad582-bfed-4984-1453-789580724900/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/6366f80a-1a26-44d0-907f-08e872d82600/public" alt="" />
                         </div>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/5a1c9de9-558a-440c-70d9-ee0ca113fe00/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/b54806e0-a5e1-498b-86e7-a2a3a4a79f00/public" alt="" />
                         </div>
                     </Content>
                     <Content>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/5a1c9de9-558a-440c-70d9-ee0ca113fe00/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/35cbffb4-3bb6-47ef-535f-b334b0085200/public" alt="" />
                         </div>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/3c497268-5ebc-4f6e-aa8e-617d5ccd5300/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/e6a76d1b-eb64-493b-f575-0f0a8d1d7a00/public" alt="" />
                         </div>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/5a1c9de9-558a-440c-70d9-ee0ca113fe00/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/cdf31930-349b-4e63-d393-3b79e60eb000/public" alt="" />
                         </div>
                     </Content>
                     <Content>
@@ -336,7 +336,7 @@ export default function Hero () {
                             <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/e14f8819-d6f8-480b-9fa3-d9e36e67b900/public" alt="" />
                         </div>
                         <div className="item">
-                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/5a1c9de9-558a-440c-70d9-ee0ca113fe00/public" alt="" />
+                            <img src="https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/90d60875-78fd-44a7-1e8d-c5ae0b185b00/public" alt="" />
                         </div>
                     </Content>
                 </Images>
