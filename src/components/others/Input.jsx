@@ -141,6 +141,7 @@ export default function Input({
     placeholderInput,
     value = "",
     onChange = () => {},
+    onFocus = () => {},
     locked = false,
     isCurrent = false,
     onNext = () => {}
@@ -148,13 +149,17 @@ export default function Input({
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            // if locked, ignore
+            // Always prevent default form submit on Enter within fields
+            e.preventDefault();
+            // if locked, ignore advancing
             if (locked) return;
             // rely on browser validation via checkValidity when available
             const target = e.target;
             if (target && typeof target.checkValidity === "function") {
                 if (target.checkValidity()) {
-                    e.preventDefault();
+                    // dispatch native events so external trackers (GTM) can observe the change/input
+                    try { target.dispatchEvent(new Event('input', { bubbles: true })); } catch (err) {}
+                    try { target.dispatchEvent(new Event('change', { bubbles: true })); } catch (err) {}
                     // blur current to ensure focus can move
                     try { target.blur(); } catch (err) {}
                     onNext();
@@ -165,8 +170,9 @@ export default function Input({
             } else {
                 // fallback: if there's any value, proceed
                 if (value && value.toString().trim() !== "") {
-                    e.preventDefault();
-                    try { target.blur(); } catch (err) {}
+                    try { target && target.dispatchEvent(new Event('input', { bubbles: true })); } catch (err) {}
+                    try { target && target.dispatchEvent(new Event('change', { bubbles: true })); } catch (err) {}
+                    try { target && target.blur(); } catch (err) {}
                     onNext();
                 }
             }
@@ -193,6 +199,7 @@ export default function Input({
                             required
                             value={value}
                             onChange={onChange}
+                            onFocus={onFocus}
                             onKeyDown={handleKeyDown}
                             disabled={locked}
                         />
@@ -204,6 +211,9 @@ export default function Input({
                                     const el = document.getElementById(idInput);
                                     if (el && typeof el.checkValidity === "function") {
                                         if (el.checkValidity()) {
+                                            // dispatch native events so GTM can catch the user action
+                                            try { el.dispatchEvent(new Event('input', { bubbles: true })); } catch (err) {}
+                                            try { el.dispatchEvent(new Event('change', { bubbles: true })); } catch (err) {}
                                             try { el.blur(); } catch (err) {}
                                             onNext();
                                         } else {
@@ -211,6 +221,8 @@ export default function Input({
                                         }
                                     } else {
                                         if (value && value.toString().trim() !== "") {
+                                            try { el && el.dispatchEvent(new Event('input', { bubbles: true })); } catch (err) {}
+                                            try { el && el.dispatchEvent(new Event('change', { bubbles: true })); } catch (err) {}
                                             try { el && el.blur(); } catch (err) {}
                                             onNext();
                                         }

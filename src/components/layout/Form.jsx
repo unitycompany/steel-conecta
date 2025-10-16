@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Title from "../texts/Title";
 import Input from "../others/Input";
@@ -77,6 +77,25 @@ export default function Form() {
     const [submitted, setSubmitted] = useState(false);
     const [sent, setSent] = useState(false);
     const [step, setStep] = useState(1); // current active input (1-based)
+    const startedRef = useRef(false);
+
+    // Helper for safe dataLayer push
+    const dlPush = (event, data = {}) => {
+        try {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event, ...data });
+        } catch (err) {
+            // ignore
+        }
+    };
+
+    // fire form_start once when user first focuses the form
+    const handleFormStart = () => {
+        if (!startedRef.current) {
+            startedRef.current = true;
+            dlPush("form_start", { form_id: "contactForm" });
+        }
+    };
 
     const firstName = values.name.trim().split(" ")[0] || "";
 
@@ -120,8 +139,22 @@ export default function Form() {
 
     const handleFinish = () => {
         setStep(3);
-        // finalize: submit the form to webhook
-        // set UI to sent immediately and send in background
+        // When finishing via the UI button or per-field 'Enviar', trigger a native form submit
+        // using requestSubmit so that analytics / GTM / listeners receive the native submit event.
+        // Fallback to direct send if requestSubmit is not available.
+        const form = document.getElementById("contactForm");
+        if (form && typeof form.requestSubmit === "function") {
+            try {
+                dlPush("form_submit_attempt", { form_id: "contactForm" });
+                form.requestSubmit();
+                return;
+            } catch (err) {
+                // fall through to fallback
+            }
+        }
+
+        // Fallback: mark as sent and call background webhook
+        dlPush("form_submit_attempt", { form_id: "contactForm", mode: "fallback" });
         setSent(true);
         sendToWebhook(values);
     };
@@ -134,6 +167,15 @@ export default function Form() {
         if (isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel)) {
             // show simple sent UI immediately, then send
             setSent(true);
+            dlPush("form_submit", {
+                form_id: "contactForm",
+                name_id: "contactForm-name",
+                email_id: "contactForm-email",
+                tel_id: "contactForm-tel",
+                name_value: values.name,
+                email_value: values.email,
+                tel_value: values.tel,
+            });
             sendToWebhook(values);
             return;
         }
@@ -225,9 +267,11 @@ export default function Form() {
             } else {
                 console.log("Form submitted to webhook", payload);
                 setSubmitted(true);
+                dlPush("form_submit_success", { form_id: "contactForm" });
             }
         } catch (err) {
             console.error("Error sending to webhook:", err);
+            dlPush("form_submit_error", { form_id: "contactForm", message: String(err && err.message || err) });
         } finally {
             setSubmitting(false);
         }
@@ -252,10 +296,20 @@ export default function Form() {
                         idInput="contactForm-name"
                         nameInput="name"
                         value={values.name}
-                        onChange={handleChange("name")}
+                        onChange={(e) => {
+                            handleFormStart();
+                            handleChange("name")(e);
+                        }}
+                        onFocus={() => {
+                            handleFormStart();
+                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-name" });
+                        }}
                         locked={false}
                         isCurrent={step === 1}
-                        onNext={() => focusNext(2, "contactForm-email")}
+                        onNext={() => {
+                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-name", value: values.name });
+                            focusNext(2, "contactForm-email");
+                        }}
                     />
                     <Input 
                         questionNumber="2."
@@ -266,11 +320,21 @@ export default function Form() {
                         idInput="contactForm-email"
                         nameInput="email"
                         value={values.email}
-                        onChange={handleChange("email")}
+                        onChange={(e) => {
+                            handleFormStart();
+                            handleChange("email")(e);
+                        }}
+                        onFocus={() => {
+                            handleFormStart();
+                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-email" });
+                        }}
                         // locked until user advances to step 2 (presses Enter or Enviar on step 1)
                         locked={step < 2}
                         isCurrent={step === 2}
-                        onNext={() => focusNext(3, "contactForm-tel")}
+                        onNext={() => {
+                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-email", value: values.email });
+                            focusNext(3, "contactForm-tel");
+                        }}
                     />
                     <Input 
                         questionNumber="3."
@@ -281,11 +345,21 @@ export default function Form() {
                         idInput="contactForm-tel"
                         nameInput="tel"
                         value={values.tel}
-                        onChange={handleChange("tel")}
+                        onChange={(e) => {
+                            handleFormStart();
+                            handleChange("tel")(e);
+                        }}
+                        onFocus={() => {
+                            handleFormStart();
+                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-tel" });
+                        }}
                         // locked until user advances to step 3 (presses Enter or Enviar on step 2)
                         locked={step < 3}
                         isCurrent={step === 3}
-                        onNext={handleFinish}
+                        onNext={() => {
+                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-tel", value: values.tel });
+                            handleFinish();
+                        }}
                     />
                     {isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel) ? (
                         <Submit type="submit" disabled={submitting || submitted}>
