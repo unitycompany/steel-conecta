@@ -249,12 +249,13 @@ export default function Form() {
                         questionData="Nome"
                         typeInput="text"
                         placeholderInput="Jane"
-                        idInput="name"
+                        idInput="contactForm-name"
+                        nameInput="name"
                         value={values.name}
                         onChange={handleChange("name")}
                         locked={false}
                         isCurrent={step === 1}
-                        onNext={() => focusNext(2, "email")}
+                        onNext={() => focusNext(2, "contactForm-email")}
                     />
                     <Input 
                         questionNumber="2."
@@ -262,13 +263,14 @@ export default function Form() {
                         questionData="E-mail"
                         typeInput="email"
                         placeholderInput={firstName ? `${firstName}@example.com` : "seu@exemplo.com"}
-                        idInput="email"
+                        idInput="contactForm-email"
+                        nameInput="email"
                         value={values.email}
                         onChange={handleChange("email")}
                         // locked until user advances to step 2 (presses Enter or Enviar on step 1)
                         locked={step < 2}
                         isCurrent={step === 2}
-                        onNext={() => focusNext(3, "tel")}
+                        onNext={() => focusNext(3, "contactForm-tel")}
                     />
                     <Input 
                         questionNumber="3."
@@ -276,7 +278,8 @@ export default function Form() {
                         questionData="WhatsApp"
                         typeInput="tel"
                         placeholderInput="(24) 98111-1111"
-                        idInput="tel"
+                        idInput="contactForm-tel"
+                        nameInput="tel"
                         value={values.tel}
                         onChange={handleChange("tel")}
                         // locked until user advances to step 3 (presses Enter or Enviar on step 2)

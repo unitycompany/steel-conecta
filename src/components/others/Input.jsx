@@ -137,6 +137,7 @@ export default function Input({
     questionData,
     typeInput,
     idInput,
+    nameInput,
     placeholderInput,
     value = "",
     onChange = () => {},
@@ -187,6 +188,7 @@ export default function Input({
                         <input
                             type={typeInput}
                             id={idInput}
+                            name={nameInput || idInput}
                             placeholder={placeholderInput}
                             required
                             value={value}
