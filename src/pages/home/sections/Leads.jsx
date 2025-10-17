@@ -199,7 +199,7 @@ export default function Leads() {
                             children="Receba leads que viram contratos de verdade"
                         />
                         <Description 
-                            children="A SteelConecta gera oportunidades reais para que você foque no que faz de melhor: construir."
+                            children="A SteelConecta gera oportunidades reais para que você foque no que faz de melhor: Construir."
                         />
                         <Button 
                             children="Quero reservar minha vaga"

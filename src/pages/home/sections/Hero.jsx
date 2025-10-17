@@ -287,7 +287,7 @@ export default function Hero () {
                         children="Aprenda a trabalhar com Steel Frame e seja pioneiro na sua região!"
                     />
                     <Description 
-                        children="Fazer parte da SteelConecta, integrante da FAST Franchising, é ter acesso a um modelo validado, com condições especiais e um sistema completo para empreender no Steel Frame com segurança e rentabilidade."
+                        children="Fazer parte da SteelConecta é ter acesso a um modelo validado, com condições especiais e um sistema completo para empreender no Steel Frame com segurança e rentabilidade."
                     />
                     <Button 
                         children="Quero reservar minha vaga"
