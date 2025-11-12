@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import alephwebdev from "@/assets/icon/icon-black-aleph-desenvolvedor-web.svg";
 import Lines from "../patterns/Lines";
+import AlephsramosdevWidget from "../AlephsramosdevWidget";
 
 const Container = styled.footer`
     width: 100%;
@@ -24,7 +25,7 @@ const Container = styled.footer`
         padding: 5%;
     }
 
-    & p {
+    & > p {
         font-size: 16px;
         font-weight: 300;
         color: ${(props) => props.theme.color.white[300]};
@@ -32,12 +33,6 @@ const Container = styled.footer`
         align-items: center;
         justify-content: center;
         gap: 8px;
-
-        & img {
-            width: 18px;
-            filter: invert(100%) brightness(500%);
-            object-fit: contain;
-        }
     }
 `
 
@@ -66,7 +61,7 @@ export default function Footer () {
                     />
                 </Bg>
                 <p>Todos os direitos reservados | Steel Conecta</p>
-                <p>by <a href="http://wa.me/5524981411940" target="_blank"><img src={alephwebdev} alt="" /></a></p>
+                <AlephsramosdevWidget />
             </Container>
         </>
     )
