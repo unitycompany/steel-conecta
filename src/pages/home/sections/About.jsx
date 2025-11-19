@@ -122,13 +122,12 @@ export default function About() {
                 <Texts>
                     <img src={logotipo} alt="logo-da-steel-conecta" />
                     <Title 
-                        children="O primeiro ecossistema que une método, logística de materiais e oportunidades de negócios."
+                        children="Tudo que você precisa para parar de improvisar e começar a lucrar está aqui."
                     />
                     <Description 
-                        children="Mais do que uma franquia: é o seu sistema operacional de negócios."
+                        children="Suporte técnico. Material direto da fábrica. Oportunidades de negócio. Sistema completo."
                     />
                     <Button 
-                        children="Quero reservar minha vaga"
                         borderColor="rgba(102, 140, 173, .65)"
                         colorText="#fff"
                         bgColor="rgb(29, 83, 124)"

@@ -73,7 +73,6 @@ export default function Services({
                     children={description}
                 />
                 <Button 
-                    children="Quero reservar minha vaga"
                     borderColor="rgba(77, 77, 77, .65)"
                     colorText="#fff"
                     bgColor="rgb(51, 51, 51)"

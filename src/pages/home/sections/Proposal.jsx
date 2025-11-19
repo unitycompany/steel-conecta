@@ -148,10 +148,10 @@ export default function Proposal () {
             <Container>
                 <Texts>
                     <Title 
-                        children="O momento do Steel Frame É AGORA"
+                        children="A hora do Steel Frame é AGORA!"
                     />
                     <Description 
-                        children="Benefícios exclusivos para quem faz parte da SteelConecta"
+                        children="E na SteelConecta você opera conectado ao ecossistema completo do maior grupo de construção a seco do Brasil:"
                     />
                 </Texts>
                 <Carousel>

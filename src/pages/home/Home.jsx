@@ -34,7 +34,7 @@ export default function Home() {
                                 <Proposal />    
                                     <Range />
                                         <Companies />  
-                                            <Leads />
+                                            {/* <Leads /> */}
                                                 <Hero />
                                                     <FaqForm />
                                                         <Footer />

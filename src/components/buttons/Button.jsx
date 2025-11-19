@@ -74,7 +74,7 @@ const ButtonStyled = styled.button`
 `
 
 export default function Button({
-    children = "default",
+    children = "Falar com um consultor",
     onClick,
     bgColor,
     borderColor,

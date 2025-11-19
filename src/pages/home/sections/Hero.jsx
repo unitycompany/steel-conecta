@@ -284,13 +284,16 @@ export default function Hero () {
                         </div>
                     </div>
                     <Title 
-                        children="Aprenda a trabalhar com Steel Frame e seja pioneiro na sua região!"
+                        children="1 obra entregue do jeito certo vale mais que 10 no prejuízo."
                     />
                     <Description 
-                        children="Fazer parte da SteelConecta é ter acesso a um modelo validado, com condições especiais e um sistema completo para empreender no Steel Frame com segurança e rentabilidade."
-                    />
+                        children={
+                            "Não é sobre entregar mais. É sobre lucrar de verdade com cada obra que você fecha.\n\n" +
+                            "A SteelConecta te coloca no caminho certo: orçamento com precisão industrial, material com preço de indústria, obra que não gera retrabalho e clientes que te indicam outros clientes.\n\n" +
+                            "Você pode continuar fechando obra barata, entregando no sufoco e rezando pra sobrar alguma coisa. Ou pode operar com método comprovado de quem já tem uma operação estruturada e sabe exatamente onde está o lucro."
+                        }
+                        />
                     <Button 
-                        children="Quero reservar minha vaga"
                         borderColor="rgba(102, 140, 173, .65)"
                         colorText="#fff"
                         bgColor="rgb(29, 83, 124)"

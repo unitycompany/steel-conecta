@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Title from "../texts/Title";
 import Input from "../others/Input";
+import Description from "../texts/Description";
 
 
 const Container = styled.section`
@@ -72,7 +73,7 @@ const Submit = styled.button`
 `
 
 export default function Form() {
-    const [values, setValues] = useState({ name: "", email: "", tel: "" });
+    const [values, setValues] = useState({ name: "", email: "", tel: "", state: "", city: "" });
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [sent, setSent] = useState(false);
@@ -138,7 +139,7 @@ export default function Form() {
     };
 
     const handleFinish = () => {
-        setStep(3);
+        setStep(5);
         // When finishing via the UI button or per-field 'Enviar', trigger a native form submit
         // using requestSubmit so that analytics / GTM / listeners receive the native submit event.
         // Fallback to direct send if requestSubmit is not available.
@@ -164,7 +165,7 @@ export default function Form() {
         e.preventDefault();
         if (submitting) return;
         // if on last step and valid, send values to webhook
-        if (isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel)) {
+        if (isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel) && isStateValid(values.state) && isCityValid(values.city)) {
             // show simple sent UI immediately, then send
             setSent(true);
             dlPush("form_submit", {
@@ -172,9 +173,13 @@ export default function Form() {
                 name_id: "contactForm-name",
                 email_id: "contactForm-email",
                 tel_id: "contactForm-tel",
+                state_id: "contactForm-state",
+                city_id: "contactForm-city",
                 name_value: values.name,
                 email_value: values.email,
                 tel_value: values.tel,
+                state_value: values.state,
+                city_value: values.city,
             });
             sendToWebhook(values);
             return;
@@ -182,7 +187,9 @@ export default function Form() {
         // otherwise move to first invalid step
         if (!isNameValid(values.name)) setStep(1);
         else if (!isEmailValid(values.email)) setStep(2);
-        else setStep(3);
+        else if (!isTelValid(values.tel)) setStep(3);
+        else if (!isStateValid(values.state)) setStep(4);
+        else setStep(5);
     };
 
     // Validation helpers
@@ -200,6 +207,14 @@ export default function Form() {
         if (!tel) return false;
         const digits = tel.replace(/\D/g, "");
         return digits.length === 11;
+    };
+
+    const isStateValid = (state) => {
+        return state && state.toString().trim().length > 0;
+    };
+
+    const isCityValid = (city) => {
+        return city && city.toString().trim().length > 0;
     };
 
     // Helper: parse utm params from current location
@@ -243,6 +258,8 @@ export default function Form() {
         const payload = {
             name: formValues.name || "",
             email: formValues.email || "",
+            state: formValues.state || "",
+            city: formValues.city || "",
             whatsapp: whatsapp_raw || "",
             whatsapp_raw: whatsapp_raw || "",
             whatsapp_masked: whatsapp_masked || "",
@@ -281,7 +298,10 @@ export default function Form() {
         <>
             <Container>
                 <Title 
-                    children="Garanta a sua vaga no pré-lançamento"
+                    children="Pronto para estruturar sua operação e começar a lucrar de verdade?"
+                />
+                <Description 
+                    children="Fale com nossos consultores agora e descubra como entrar no maior ecossistema de Steel Frame do Brasil."
                 />
                 {sent ? (
                     <div style={{ padding: 0, textAlign: 'left', color: 'var(--color--black)' }}>Obrigado por enviar o formulário, em breve nosso time entrará em contato com você!</div>
@@ -358,10 +378,58 @@ export default function Form() {
                         isCurrent={step === 3}
                         onNext={() => {
                             dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-tel", value: values.tel });
+                            focusNext(4, "contactForm-state");
+                        }}
+                    />
+                    <Input 
+                        questionNumber="4."
+                        children={`Em qual estado você mora, ${firstName ? ", " + firstName : ""}?`}
+                        questionData="Estado"
+                        typeInput="text"
+                        placeholderInput="RJ"
+                        idInput="contactForm-state"
+                        nameInput="state"
+                        value={values.state}
+                        onChange={(e) => {
+                            handleFormStart();
+                            handleChange("state")(e);
+                        }}
+                        onFocus={() => {
+                            handleFormStart();
+                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-state" });
+                        }}
+                        locked={step < 4}
+                        isCurrent={step === 4}
+                        onNext={() => {
+                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-state", value: values.state });
+                            focusNext(5, "contactForm-city");
+                        }}
+                    />
+                    <Input 
+                        questionNumber="5."
+                        children={`E em qual cidade?`}
+                        questionData="Cidade"
+                        typeInput="text"
+                        placeholderInput="Rio de Janeiro"
+                        idInput="contactForm-city"
+                        nameInput="city"
+                        value={values.city}
+                        onChange={(e) => {
+                            handleFormStart();
+                            handleChange("city")(e);
+                        }}
+                        onFocus={() => {
+                            handleFormStart();
+                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-city" });
+                        }}
+                        locked={step < 5}
+                        isCurrent={step === 5}
+                        onNext={() => {
+                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-city", value: values.city });
                             handleFinish();
                         }}
                     />
-                    {isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel) ? (
+                    {isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel) && isStateValid(values.state) && isCityValid(values.city) ? (
                         <Submit type="submit" disabled={submitting || submitted}>
                             {submitting ? "Enviando..." : "Enviar e falar com o consultor"}
                         </Submit>

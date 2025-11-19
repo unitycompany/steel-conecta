@@ -56,7 +56,6 @@ export default function Header() {
                     />
                 </picture>
                 <Button 
-                    children="Quero reserver minha vaga"
                     borderColor="rgba(102, 140, 173, .65)"
                     colorText="#fff"
                     bgColor="rgb(29, 83, 124)"

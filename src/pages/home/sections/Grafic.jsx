@@ -87,6 +87,65 @@ const Content = styled.div`
     padding: 32px;
     gap: 32px;
 
+    & .grafic {
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+        flex-direction: column;
+        width: 50%;
+        height: 100%;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+
+            & .badge {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                @media (max-width: 768px) {
+                    padding: 0 16px;
+                }
+
+                & .titles {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 6px;
+
+                    @media (max-width: 768px) {
+                        gap: 4px;
+                    }
+
+                    & h1 {
+                        font-size: 18px;
+                        color: ${( props ) => props.theme.color.black[300]};
+                        line-height: 1;
+                        font-weight: 500;
+
+                        @media (max-width: 768px) {
+                            font-size: 14px;    
+                        }
+                    }
+
+                    & p {
+                        font-size: 14px;
+                        color: ${( props ) => props.theme.color.gray['basic']};
+                        line-height: 1;
+                        font-weight: 300;
+                        font-style: italic;
+
+                        @media (max-width: 768px) {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+    }
+
     @media (max-width: 768px) {
         flex-direction: column;
         padding: 8px 0;
@@ -95,7 +154,7 @@ const Content = styled.div`
 `
 
 const ChartContainer = styled.div`
-    width: 50%;
+    width: 100%;
     height: 500px;
 
     @media (max-width: 768px) {
@@ -142,47 +201,6 @@ const Infos = styled.div`
         }
     }
 
-    & .badge {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-
-        & .titles {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 6px;
-
-            @media (max-width: 768px) {
-                gap: 4px;
-            }
-
-            & h1 {
-                font-size: 18px;
-                color: ${( props ) => props.theme.color.black[300]};
-                line-height: 1;
-                font-weight: 500;
-
-                @media (max-width: 768px) {
-                    font-size: 14px;    
-                }
-            }
-
-            & p {
-                font-size: 14px;
-                color: ${( props ) => props.theme.color.gray['basic']};
-                line-height: 1;
-                font-weight: 300;
-                font-style: italic;
-
-                @media (max-width: 768px) {
-                    font-size: 10px;
-                }
-            }
-        }
-    }
 `
 
 export default function GraficSection() {
@@ -316,15 +334,15 @@ export default function GraficSection() {
                 </Bg>
                 <Texts>
                     <Title 
-                        children="Você executa bem, mas não lucra como um empresário?"
+                        children="Você sabe montar Steel Frame. A Steel Conecta te ensina a ganhar dinheiro de verdade com isso."
                     />
                     <Description 
-                        children="Construa no sistema que mais cresce no Brasil com método, suporte e negócios REAIS."
+                        children="Faça parte do maior ecossistema de construção a seco do Brasil. Com obras, estrutura e margem real."
                     />
                 </Texts>
                 <Content>
-                    <ChartContainer ref={chartRef} />
-                    <Infos>
+                    <div className="grafic">
+                        <ChartContainer ref={chartRef} />
                         <aside className="badge">
                             <Badge 
                                 children={<TrendUpIcon />}
@@ -341,14 +359,16 @@ export default function GraficSection() {
                                 </Description>
                             </div>
                         </aside>
+                    </div>
+                    <Infos>
                         <Title 
-                            children="O mercado cresce 9,5% ao ano, a sua margem de lucro também?"
+                            children="O Steel Frame não para de crescer. E o seu faturamento também está crescendo?"
                         />
                         <Description 
-                            children="Faça parte do ecossistema que transforma montadores e empreteiros em empresários rentáveis de Steel Frame."
+                            children="O problema não é falta de obra. É falta de estrutura para lucrar com elas. Sem estrutura, sem processo e sem apoio logístico, você vira um peão caro, não um empresário."
                         />
                         <Button 
-                            children="Quero reservar minha vaga"
+                            children="Quero lucrar de verdade"
                             borderColor="rgba(102, 140, 173, .65)"
                             colorText="#fff"
                             bgColor="rgb(29, 83, 124)"
