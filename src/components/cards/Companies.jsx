@@ -96,6 +96,7 @@ const BG = styled.div`
 export default function CompaniesCard({
     list = [],
     companyImg,
+    company2Img = '',
     companyName = 'Company Name',
     description = 'Company Description',
     bgColor = 'rgb(29, 83, 124)'
@@ -117,6 +118,13 @@ export default function CompaniesCard({
                     </BG>
                     <div className="company">
                         <img src={companyImg} alt={companyName} loading="lazy" title={companyName}/>
+                        {
+                            company2Img === '' ? (
+                                null
+                            ) : (
+                                <img src={company2Img} />
+                            )
+                        }
                         <h3>{companyName}</h3>
                     </div>
                     <Title 
@@ -131,7 +139,7 @@ export default function CompaniesCard({
                     </ul>
                 </Content>
                 <Button 
-                    children="Quero reservar minha vaga"
+                    children="Falar com um consultor"
                     borderColor="rgba(77, 77, 77, .65)"
                     colorText="#fff"
                     bgColor="rgb(51, 51, 51)"

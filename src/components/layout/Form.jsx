@@ -298,10 +298,10 @@ export default function Form() {
         <>
             <Container>
                 <Title 
-                    children="Pronto para estruturar sua operação e começar a lucrar de verdade?"
+                    children="Pronto para estruturar sua operação e lucrar de verdade?"
                 />
                 <Description 
-                    children="Fale com nossos consultores agora e descubra como entrar no maior ecossistema de Steel Frame do Brasil."
+                    children="Você garante a obra, nós garantimos o negócio. Preencha o formulário e descubra como entrar para o time que lidera o mercado."
                 />
                 {sent ? (
                     <div style={{ padding: 0, textAlign: 'left', color: 'var(--color--black)' }}>Obrigado por enviar o formulário, em breve nosso time entrará em contato com você!</div>
@@ -381,54 +381,58 @@ export default function Form() {
                             focusNext(4, "contactForm-state");
                         }}
                     />
-                    <Input 
-                        questionNumber="4."
-                        children={`Em qual estado você mora, ${firstName ? ", " + firstName : ""}?`}
-                        questionData="Estado"
-                        typeInput="text"
-                        placeholderInput="RJ"
-                        idInput="contactForm-state"
-                        nameInput="state"
-                        value={values.state}
-                        onChange={(e) => {
-                            handleFormStart();
-                            handleChange("state")(e);
-                        }}
-                        onFocus={() => {
-                            handleFormStart();
-                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-state" });
-                        }}
-                        locked={step < 4}
-                        isCurrent={step === 4}
-                        onNext={() => {
-                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-state", value: values.state });
-                            focusNext(5, "contactForm-city");
-                        }}
-                    />
-                    <Input 
-                        questionNumber="5."
-                        children={`E em qual cidade?`}
-                        questionData="Cidade"
-                        typeInput="text"
-                        placeholderInput="Rio de Janeiro"
-                        idInput="contactForm-city"
-                        nameInput="city"
-                        value={values.city}
-                        onChange={(e) => {
-                            handleFormStart();
-                            handleChange("city")(e);
-                        }}
-                        onFocus={() => {
-                            handleFormStart();
-                            dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-city" });
-                        }}
-                        locked={step < 5}
-                        isCurrent={step === 5}
-                        onNext={() => {
-                            dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-city", value: values.city });
-                            handleFinish();
-                        }}
-                    />
+                    {step >= 4 && (
+                        <Input 
+                            questionNumber="4."
+                            children={`Em qual estado você mora, ${firstName ? ", " + firstName : ""}?`}
+                            questionData="Estado"
+                            typeInput="text"
+                            placeholderInput="RJ"
+                            idInput="contactForm-state"
+                            nameInput="state"
+                            value={values.state}
+                            onChange={(e) => {
+                                handleFormStart();
+                                handleChange("state")(e);
+                            }}
+                            onFocus={() => {
+                                handleFormStart();
+                                dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-state" });
+                            }}
+                            locked={step < 4}
+                            isCurrent={step === 4}
+                            onNext={() => {
+                                dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-state", value: values.state });
+                                focusNext(5, "contactForm-city");
+                            }}
+                        />
+                    )}
+                    {step >= 5 && (
+                        <Input 
+                            questionNumber="5."
+                            children={`E em qual cidade?`}
+                            questionData="Cidade"
+                            typeInput="text"
+                            placeholderInput="Rio de Janeiro"
+                            idInput="contactForm-city"
+                            nameInput="city"
+                            value={values.city}
+                            onChange={(e) => {
+                                handleFormStart();
+                                handleChange("city")(e);
+                            }}
+                            onFocus={() => {
+                                handleFormStart();
+                                dlPush("form_field_focus", { form_id: "contactForm", field_id: "contactForm-city" });
+                            }}
+                            locked={step < 5}
+                            isCurrent={step === 5}
+                            onNext={() => {
+                                dlPush("form_field_complete", { form_id: "contactForm", field_id: "contactForm-city", value: values.city });
+                                handleFinish();
+                            }}
+                        />
+                    )}
                     {isNameValid(values.name) && isEmailValid(values.email) && isTelValid(values.tel) && isStateValid(values.state) && isCityValid(values.city) ? (
                         <Submit type="submit" disabled={submitting || submitted}>
                             {submitting ? "Enviando..." : "Enviar e falar com o consultor"}

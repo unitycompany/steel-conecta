@@ -6,8 +6,7 @@ import Button from "../buttons/Button";
 
 const Card = styled.div`
     width: 100%;
-    height: auto;
-    min-height: 500px;
+    height: 540px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

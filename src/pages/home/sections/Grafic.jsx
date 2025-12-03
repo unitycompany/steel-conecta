@@ -68,7 +68,7 @@ const Texts = styled.div`
         line-height: 1.2;
         color: ${(props) => props.theme.color.gray[300]};
         font-weight: 300;
-        width: 50%;
+        width: fit-content;
 
         @media (max-width: 768px){
             width: 100%;
@@ -94,6 +94,7 @@ const Content = styled.div`
         flex-direction: column;
         width: 50%;
         height: 100%;
+        max-height: 460px;
 
         @media (max-width: 768px) {
             width: 100%;
@@ -333,12 +334,12 @@ export default function GraficSection() {
                     />
                 </Bg>
                 <Texts>
-                    <Title 
-                        children="Você sabe montar Steel Frame. A Steel Conecta te ensina a ganhar dinheiro de verdade com isso."
-                    />
-                    <Description 
-                        children="Faça parte do maior ecossistema de construção a seco do Brasil. Com obras, estrutura e margem real."
-                    />
+                    <Title >
+                        Você já sabe montar. <br /> A Steel Conecta te ensina a lucrar.
+                    </Title>
+                    <Description >
+                        Faça parte do maior ecossistema de construção a seco do Brasil. <br />Com obras, estrutura e margem real.
+                    </Description>
                 </Texts>
                 <Content>
                     <div className="grafic">
@@ -361,11 +362,11 @@ export default function GraficSection() {
                         </aside>
                     </div>
                     <Infos>
-                        <Title 
-                            children="O Steel Frame não para de crescer. E o seu faturamento também está crescendo?"
-                        />
+                        <Title>
+                            O Steel Frame não para de crescer. <br/> E o seu faturamento está crescendo?
+                        </Title>
                         <Description 
-                            children="O problema não é falta de obra. É falta de estrutura para lucrar com elas. Sem estrutura, sem processo e sem apoio logístico, você vira um peão caro, não um empresário."
+                            children="O problema não é falta de obra, é falta de lucro. Sem processos e apoio logístico, você trabalha muito e sobra pouco. Chega de ser um peão caro. Assuma o seu lugar de empresário."
                         />
                         <Button 
                             children="Quero lucrar de verdade"

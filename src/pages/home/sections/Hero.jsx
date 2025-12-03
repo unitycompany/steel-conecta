@@ -276,7 +276,7 @@ export default function Hero () {
                         />
                         <div className="infos">
                             <Title 
-                                children="O Steel Frame não é o futuro, já é o presente"
+                                children="O problema não é o mercado, é o método."
                             />
                             <Description 
                                 children="Steel Conecta | 2025"
@@ -284,15 +284,11 @@ export default function Hero () {
                         </div>
                     </div>
                     <Title 
-                        children="1 obra entregue do jeito certo vale mais que 10 no prejuízo."
+                        children="Uma obra com margem vale mais que dez no prejuízo."
                     />
-                    <Description 
-                        children={
-                            "Não é sobre entregar mais. É sobre lucrar de verdade com cada obra que você fecha.\n\n" +
-                            "A SteelConecta te coloca no caminho certo: orçamento com precisão industrial, material com preço de indústria, obra que não gera retrabalho e clientes que te indicam outros clientes.\n\n" +
-                            "Você pode continuar fechando obra barata, entregando no sufoco e rezando pra sobrar alguma coisa. Ou pode operar com método comprovado de quem já tem uma operação estruturada e sabe exatamente onde está o lucro."
-                        }
-                        />
+                    <Description>
+                        O tempo de "aprender errando" acabou. <br /><br />Ou você se profissionaliza com suporte, supply e vendas garantidas, ou vai continuar perdendo mercado para quem já entendeu o jogo.
+                    </Description>
                     <Button 
                         borderColor="rgba(102, 140, 173, .65)"
                         colorText="#fff"

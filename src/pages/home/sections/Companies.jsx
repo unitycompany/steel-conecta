@@ -51,7 +51,7 @@ const Texts = styled.div`
         line-height: 1.2;
         color: ${(props) => props.theme.color.gray[300]};
         font-weight: 300;
-        width: 50%;
+        width: fit-content;
 
         @media (max-width: 768px){
             width: 100%;
@@ -63,6 +63,7 @@ const Texts = styled.div`
 const Carousel = styled.div`
     width: 100%;
     height: 100%;
+    position: relative;
 
     & swiper {
         width: 100%;
@@ -75,12 +76,22 @@ const Controls = styled.div`
     align-items: center;
     justify-content: space-between;
     margin: 18px 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
 
     & .buttons {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         gap: 8px;
+        position: absolute;
+        z-index: 100000;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 105%;
 
         & div {
             width: 42px;
@@ -95,6 +106,9 @@ const Controls = styled.div`
             cursor: pointer;
             overflow: hidden;
             transition: all 0.3s ease;
+            border: 1px solid #353535!important;
+            z-index: 1000;
+            position: relative;
 
             & svg {
                 transition: all 0.3s ease;
@@ -177,6 +191,7 @@ export default function Companies () {
                             <SwiperSlide key={i} className="swiper-slide">
                                 <CompaniesCard 
                                     companyImg={company.companyImg}
+                                    company2Img={company.company2Img}
                                     companyName={company.companyName}
                                     description={company.description}
                                     list={company.list}
@@ -187,7 +202,7 @@ export default function Companies () {
                     </Swiper>
                     <Controls>
                         <aside className="info">
-                            <span>Todos esses serviços serão entregues pela <strong>Steel Conecta</strong></span>
+                            {/* <span>Todos esses serviços serão entregues pela <strong>Steel Conecta</strong></span> */}
                         </aside>
                         <aside className="buttons">
                             <div className="swiper-button-prev">
