@@ -300,9 +300,9 @@ export default function Form() {
                 <Title 
                     children="Pronto para estruturar sua operação e lucrar de verdade?"
                 />
-                <Description 
-                    children="Você garante a obra, nós garantimos o negócio. Preencha o formulário e descubra como entrar para o time que lidera o mercado."
-                />
+                <Description >
+                    <b>Você garante a obra, nós garantimos o negócio.</b> Preencha o formulário e descubra como entrar para o time que lidera o mercado.
+                </Description>
                 {sent ? (
                     <div style={{ padding: 0, textAlign: 'left', color: 'var(--color--black)' }}>Obrigado por enviar o formulário, em breve nosso time entrará em contato com você!</div>
                 ) : (
