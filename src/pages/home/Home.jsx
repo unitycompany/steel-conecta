@@ -9,6 +9,7 @@ import Companies from "./sections/Companies";
 import Leads from "./sections/Leads";
 import FaqForm from "./sections/FaqForm";
 import Footer from "@components/layout/Footer";
+import StructuredData from "@/components/seo/StructuredData";
 
 const Container = styled.section`
     width: 100%;
@@ -26,6 +27,7 @@ const Container = styled.section`
 export default function Home() {
     return (
         <>
+            <StructuredData />
             <Container>
                 <Header />
                     <Grafic />
